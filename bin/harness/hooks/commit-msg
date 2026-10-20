@@ -1,0 +1,10 @@
+#!/bin/sh
+# Refuses a message out of format BEFORE the commit (same rule as the gate, lib/gate.ps1): a bad
+# message found only at the gate costs a whole rejection.
+# Installed by the harness in <git-common-dir>/hooks (run-coder.ps1: Install-CommitMsgHook).
+s=$(head -n 1 "$1" | tr -d '\r')
+echo "$s" | grep -qE '^(Merge |Revert |fixup! |squash! )' && exit 0
+echo "$s" | grep -qE '^[a-z]+\((review|owner|process|skills|harness|git)\)' && exit 0
+echo "$s" | grep -qE '^[a-z]+(\([a-z0-9_.,/ -]+\))?: .+\(TASK [0-9]+\)$' && exit 0
+echo "commit refused (docs/RULES.md, git): '<type>(<scope>): <summary> (TASK <nnn>)' expected, got: $s" >&2
+exit 1

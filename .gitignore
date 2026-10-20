@@ -1,0 +1,54 @@
+# --- SECRETS: never committed (keys live in the User environment) ---
+.mcp.json
+config/project.env
+*.env
+!*.env.example
+.claude/settings.local.json
+
+# --- Harness state (local to the machine) ---
+.state/
+logs/
+STOP
+STOP-ALL
+pipeline/task.md
+pipeline/report.md
+pipeline/review.md
+pipeline/gate.md
+pipeline/bench.md
+pipeline/bench.tmp
+pipeline/load.md
+pipeline/lane.txt
+pipeline/mediation.md
+pipeline/blind-judge.md
+pipeline/base.txt
+pipeline/.n
+pipeline/.hashes
+pipeline/.in_progress
+pipeline/.snapshots/
+pipeline/history/
+# pipeline/owner.md, the templates and pipeline/README.md ARE tracked.
+
+# --- Proofs of work (traces, not sources; a reference to keep goes to tests/golden/ or docs/art/) ---
+proofs/
+
+# --- Deliverables (regenerable) ---
+/build/
+
+# --- Build outputs of common stacks (uncomment yours at onboarding) ---
+# target/            # Rust / cargo
+# node_modules/      # Node
+# dist/              # JS bundlers, Python wheels
+# .venv/             # Python virtual env
+# bin/Debug/ bin/Release/ obj/   # .NET (careful: never ignore the harness's bin/)
+# Library/ Temp/ Obj/            # Unity
+# Binaries/ Intermediate/ Saved/ DerivedDataCache/   # Unreal
+
+# --- Misc ---
+__pycache__/
+*.pyc
+*.blend1
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

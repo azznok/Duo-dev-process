@@ -1,0 +1,7 @@
+# What the harness's Python tools really import (python -m pip install -r requirements.txt).
+# Nothing here builds the project itself: its own dependencies live with its stack.
+numpy        # tools/image/metrics.py, tools/audio
+Pillow       # tools/image/vignette.py (thumbnails for the reviewer and the blind judge), metrics.py
+soundfile    # tools/audio (pipeline-audio: read mp3/wav, write WAV and OGG; libsndfile embedded)
+# The generators (tools/gen) and tools/mesh only use the standard library.
+# tools/blender/*.py run INSIDE Blender.

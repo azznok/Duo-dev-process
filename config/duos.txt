@@ -1,0 +1,8 @@
+# THE DUOS - read by bin\harness\orchestrator.ps1. One line per duo:
+#   name   folder   build-folder|-   background-load (yes|no)
+# Folders are relative to the PARENT folder of the main repo; "." = the main repo itself (the
+# first duo). The others live in a git worktree that the orchestrator creates when needed.
+# build-folder: this duo's own build output (exported through BUILD_DIR_ENV); "-" = none.
+# Start with ONE duo; add a second once the backlog is split into lanes (docs/HARNESS.md).
+A   .   -   no
+# B   myproject-b   -   no
